@@ -121,12 +121,13 @@ logoTextLetters.forEach((letter) => {
 gsap.fromTo(
   '.logo-letter',
   {
-    y: 30,
+    y: "100%",
   },
   {
     y: 0,
     delay: 1.2,
-    duration: 0.4,
+    duration: 0.5,
     stagger: 0.05,
+    ease: 'back.out(3)',
   }
 )
