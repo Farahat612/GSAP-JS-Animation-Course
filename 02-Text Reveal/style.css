@@ -54,9 +54,13 @@ nav {
   display: flex;
   font-size: 2rem;
 }
+.cta-text h2 {
+  overflow: hidden;
+}
 .cta-text span {
   padding: 0 0.4rem;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: block;
 }
 .cta-btn {
   margin-top: 1rem;
