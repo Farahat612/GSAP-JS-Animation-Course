@@ -1,10 +1,76 @@
+/* CSS RESET*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
+/* End of CSS RESET*/
 
+/* Navbar */
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+.logo {
+  color: rgb(33, 33, 33);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+/* End of Navbar*/
+
+/* Hero Section */
+.hero-section {
+  height: 80vh;
+  margin: 0% 10%;
+}
+.hero-section img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta-text {
+  display: flex;
+  font-size: 2rem;
+}
+.cta-text span {
+  padding: 0 0.4rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.cta-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #fff;
+  color: rgb(33, 33, 33);
+  font-family: 'poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+/* Hero Section End*/
