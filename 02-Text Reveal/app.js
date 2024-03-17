@@ -19,7 +19,7 @@ tl.fromTo(
   }
 )
 
-// Animating the first line of cta text to reveal from the left to the right
+// Animating the first line of cta text to reveal
 tl.fromTo(
   '.cta-1',
   {
@@ -57,8 +57,7 @@ tl.fromTo(
   '<20%'
 ) // <20% means it should start 20% before the cta-3 animation ends
 
-
-// Animating the second line of cta text to reveal from the left to the right
+// Animating the second line of cta text to reveal
 tl.fromTo(
   '.cta-4',
   {
@@ -70,7 +69,7 @@ tl.fromTo(
     opacity: 1,
   },
   '<20%'
-) // <20% means it should start 20% before the hero animation ends
+) // <20% means it should start 20% before the cta-3 animation ends
 tl.fromTo(
   '.cta-6',
   {
@@ -82,7 +81,7 @@ tl.fromTo(
     opacity: 1,
   },
   '<20%'
-) // <20% means it should start 20% before the cta-1 animation ends
+) // <20% means it should start 20% before the cta-4 animation ends
 tl.fromTo(
   '.cta-5',
   {
@@ -94,5 +93,18 @@ tl.fromTo(
     opacity: 1,
   },
   '<20%'
-) // <20% means it should start 20% before the cta-3 animation ends
+) // <20% means it should start 20% before the cta-6 animation ends
 
+// Animating the third line of cta button to reveal
+tl.fromTo(
+  '.cta-btn',
+  {
+    y: 30,
+    opacity: 0,
+  },
+  {
+    y: 0,
+    opacity: 1,
+  },
+  '<'
+) // < means it should start synchronously with the prev animation
