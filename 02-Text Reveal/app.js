@@ -108,3 +108,28 @@ tl.fromTo(
   },
   '<'
 ) // < means it should start synchronously with the prev animation
+
+
+// Splitting the logo text into individual characters and animating them to reveal
+const logo = document.querySelector('.logo')
+const logoTextLetters = logo.textContent.split('')
+logo.textContent = ''
+logoTextLetters.forEach((letter) => {
+  logo.innerHTML += `<span class="logo-letter" style="display: inline-block;">${letter}</span>`
+})
+
+// Animating the logo text to reveal
+gsap.fromTo(
+  '.logo-letter',
+  {
+    y: 25,
+  },
+  {
+    y: 0,
+    delay: 1.2,
+    duration: .4,
+    stagger: 0.05,
+  }
+)
+
+
