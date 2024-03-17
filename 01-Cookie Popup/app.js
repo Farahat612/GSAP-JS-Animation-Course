@@ -17,9 +17,21 @@ tl.fromTo(
 // animate the text
 tl.fromTo('.text', { x: 30, opacity: 0 }, { x: 0, opacity: 1 }, '<') // '<' means it will start at the same time as the previous animation
 
-
 //Fading the cookie out when the button is clicked
-const button = document.querySelector('button');
+const button = document.querySelector('button')
 button.addEventListener('click', () => {
-    gsap.to('.cookie-container', {opacity: 0, y: 100, duration: 0.45, ease: 'power1.out'})
+  gsap.to('.cookie-container', {
+    opacity: 0,
+    y: 100,
+    duration: 0.45,
+    ease: 'power1.out',
+  })
 })
+
+// Bouncing the cookie and the crumbs
+tl.fromTo(
+  '.cookie',
+  { y: 0, rotation: '0deg' },
+  { y: -20, rotation: '-20deg', yoyo: true, repeat: -1 }
+) // yoyo: true means it will go back to the original position and repeat: -1 means it will repeat indefinitely
+tl.fromTo('#crumbs', { y: 0 }, { y: -20, yoyo: true, repeat: -1 }, '<') // '<' means it will start at the same time as the previous animation
