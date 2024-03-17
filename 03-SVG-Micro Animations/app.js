@@ -89,3 +89,42 @@ notifications.addEventListener('click', () => {
     }
   )
 })
+
+// Animating the Messages SVG element
+// 1. setting transform origin of the envelope
+gsap.set('.flap', { transformOrigin: 'top' })
+// 2. triggering the animation on the messages click
+messages.addEventListener('click', () => {
+  // whole envelope animation
+  tl.fromTo('.messages-svg', { scale: 1 }, { scale: 0.9 })
+  // flap animation
+  tl.fromTo(
+    '.flap',
+    { scale: 1 },
+    { scale: -1 }, // scaling the flap to 0 then to -1 to make it look like it's opening
+    '<50%' // starting the flap opening animation at 50% of the timeline starts
+  )
+  // envelope back animation
+  tl.fromTo(
+    '.messages-svg',
+    { scale: 0.9 },
+    { scale: 1 }, // scaling the envelope back to 1 after the flap opening
+    '<50%'
+  )
+  // note animation
+  tl.fromTo(
+    '.note',
+    { y: 0, opacity: 1 },
+    {
+      y: -40,
+      opacity: 0,
+      duration: 0.75,
+    }
+  )
+  // Animating the flap back to the original position as it is closing
+  tl.to(
+    '.flap',
+    { scale: 1 },
+    '<50%' // so it starts closing after 50% of the prev animation
+  )
+})
