@@ -1,3 +1,4 @@
+/* CSS RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,5 +11,36 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
+/* End Of CSS RESET */
+
+/* Container styles */
+.container {
+  background: white;
+  color: black;
+  padding: 5rem;
+  border-radius: 2rem;
+}
+/* End of Container styles */
+
+/* Content styles */
+.home,
+.notifications,
+.messages {
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+}
+
+.home-title,
+.notification-title,
+.message-title {
+  padding-left: 2rem;
+}
+
+.notification-svg,
+.messages-svg {
+  overflow: visible;
+}
+/* End of Content styles */
