@@ -6,6 +6,7 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 /* End of CSS RESET*/
 
@@ -17,9 +18,7 @@ nav {
   align-items: center;
   padding: 1.5rem 2rem;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  position: fixed;
   width: 100%;
 }
 .logo {
@@ -37,7 +36,6 @@ nav {
   margin: 0% 10%;
 }
 .hero-section img {
-  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
