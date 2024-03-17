@@ -1,0 +1,63 @@
+/* CSS RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* End Of CSS RESET */
+
+/* Cookie container styles */
+.cookie-container {
+  background: linear-gradient(260deg, #9b6c50 0%, #4f2626 100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  width: 20rem;
+  height: 10rem;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+/* End of cookie container styles */
+
+/* Cookie and text styles */
+.text {
+  width: 80%;
+}
+.cookie {
+  transform: scale(0.6);
+  overflow: visible;
+}
+.cookie-title {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+.cookie-subtitle {
+  font-weight: bold;
+  padding: 0.7rem 0rem;
+  font-size: 0.6rem;
+}
+/* End of cookie and text styles */
+
+/* Button styles */
+button {
+  border-style: none;
+  padding: 0.5rem 1rem;
+  color: #4f2626;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+}
+/* button:hover {
+  cursor: pointer;
+  background: #4f2626;
+  color: white;
+} */
+/* End of button styles */
