@@ -109,7 +109,6 @@ tl.fromTo(
   '<'
 ) // < means it should start synchronously with the prev animation
 
-
 // Splitting the logo text into individual characters and animating them to reveal
 const logo = document.querySelector('.logo')
 const logoTextLetters = logo.textContent.split('')
@@ -122,14 +121,12 @@ logoTextLetters.forEach((letter) => {
 gsap.fromTo(
   '.logo-letter',
   {
-    y: 25,
+    y: 30,
   },
   {
     y: 0,
     delay: 1.2,
-    duration: .4,
+    duration: 0.4,
     stagger: 0.05,
   }
 )
-
-
