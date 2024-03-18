@@ -116,3 +116,47 @@ nav img {
   transform: scale(1.05);
 }
 /* Circle Bubbles End*/
+
+
+/*! --------------------- Product Page Styles --------------------- !*/
+.product-section {
+  background: white;
+  min-height: 90vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 5;
+}
+.product-description {
+  padding: 5% 15%;
+  color: #4b4b4b;
+}
+.product-description h2 {
+  font-size: 2rem;
+}
+.product-description p {
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.product-gallery {
+  display: grid;
+  padding: 5% 15%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap : 2rem;
+}
+.product-gallery .product-img {
+ border-radius: 1rem;
+ width: 100%;
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price img {
+  transform: scale(0.8);
+}
+.card {
+  padding: 1rem;
+}
+/*! --------------------- Product Page Styles End --------------------- !*/
