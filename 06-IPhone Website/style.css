@@ -143,7 +143,7 @@ a {
 }
 .retina-line {
   position: absolute;
-  bottom: 15%;
+  bottom: 25%;
   left: 50%;
   transform: translate(-50%, -15%);
   font-size: 0.8rem;
@@ -152,7 +152,7 @@ a {
 
 /* 4th Page Slider */
 .forth-page {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   position: relative;
 }

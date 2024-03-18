@@ -64,12 +64,44 @@ tlSplit.fromTo(
   '<'
 ) // right text
 // 3.3 Pinning this page to the viewport after the split part --> !didn't like it
-// const tlSplitPin = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '.third-page',
-//     pin: true,
-//     pinSpacing: false,
-//     start: '10%',
-//     end: '100%',
-//   },
-// })
+const tlSplitPin = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.third-page',
+    pin: true,
+    pinSpacing: false,
+    start: '0%',
+    end: '100%',
+  },
+})
+
+// 04. Carousel Animation
+// 4.1 Selecting the elements needed : swatches, gallery, and slides
+const swatches = document.querySelectorAll('.swatches img')
+const gallery = document.querySelector('.phone-gallery')
+const slides = document.querySelectorAll('.phone-gallery-container')
+// 4.2 declaring the variables needed to track the current swatch and the zIndex of the close up images
+let currentSwatch = 'blue' // to keep track of the current swatch
+let topIndex = 2 // to keep track of the zIndex of the close up images
+// 4.3 Looping through the swatches to add the click event to each one
+swatches.forEach((swatch, index) => {
+  // getting the left position of the slide to move the gallery to the left or right
+  const coord = slides[index].getBoundingClientRect().left // to get the left position of the slide --> getBoundingClientRect() returns a DOMRect object providing information about the size of an element and its position relative to the viewport
+  // adding the click event to each swatch
+  swatch.addEventListener('click', (e) => {
+    let swatchName = e.target.getAttribute('swatch') // we gave it a custom attribute
+    let closeUp = document.querySelector('.' + swatchName) // we gave the close up images the same class name as the swatch name
+
+    if (currentSwatch === swatchName) return // if we are on the same swatch then don't do anything
+
+    // 1. Close up fading on swatch click:
+    gsap.set(closeUp, { zIndex: topIndex }) // set the zIndex of the close up image to be on top
+    gsap.fromTo(closeUp, { opacity: 0 }, { opacity: 1, duration: 1 }) // Fade in the close up image
+
+    // 2. Gallery Slider on swatch click
+    gsap.to(gallery, { x: -coord, duration: 1, ease: 'back.out(1)' }) // We simply move the gallery to the left or right by a certain amount of pixels we got from the left position of the slide
+
+    // 3. needed actions
+    topIndex++ // to increase the zIndex of the close up images
+    currentSwatch = swatchName // to keep the same swatch name if same swatch is clicked again
+  })
+})
