@@ -70,16 +70,16 @@ containers.forEach((container) => {
   })
 })
 
-//Reverting each input animations back if it's not focused
+//Reverting each input placeholder animations back if it's not focused and also validating inputs
 form.addEventListener('click', () => {
   //Looping through the containers and reverting the animations back if the input is not focused
   containers.forEach((container) => {
-    // 1. Selecting the elements needed from the container
+    // Selecting the elements needed from the container
     const input = container.querySelector('.input')
     const line = container.querySelector('.elastic-line')
     const placeholder = container.querySelector('.placeholder')
 
-    //Checking to see if the input is not focused and it's empty
+    // 1. Reverting placeholder animation if the input is not focused and it's empty
     if (document.activeElement !== input) {
       if (!input.value) {
         // Reverting the placeholder back to the start position
@@ -92,6 +92,45 @@ form.addEventListener('click', () => {
         })
       }
     }
-    
+
+    // 2. colorizing the line and the placeholder based on the input validation
+    input.addEventListener('input', (e) => {
+      // creating colors constants
+      const validColor = '#6391E8'
+      const invalidColor = '#FE8C99'
+      // creating a function to colorize the line and the placeholder
+      function colorize(color, line, placeholder) {
+        gsap.to(line, { stroke: color, duration: 0.5 })
+        gsap.to(placeholder, { color: color, duration: 0.5 })
+      }
+
+      // 2.1 Name Validation
+      if (e.target.type === 'text') {
+        let inputText = e.target.value
+        if (inputText.length > 2) {
+          colorize(validColor, line, placeholder)
+        } else {
+          colorize(invalidColor, line, placeholder)
+        }
+      }
+      // 2.2 Email Validation
+      if (e.target.type === 'email') {
+        let valid = validateEmail(e.target.value)
+        if (valid) {
+          colorize(validColor, line, placeholder)
+        } else {
+          colorize(invalidColor, line, placeholder)
+        }
+      }
+      // 2.3 Phone Validation
+      if (e.target.type === 'tel') {
+        let valid = validatePhone(e.target.value)
+        if (valid) {
+          colorize(validColor, line, placeholder)
+        } else {
+          colorize(invalidColor, line, placeholder)
+        }
+      }
+    })
   })
 })
