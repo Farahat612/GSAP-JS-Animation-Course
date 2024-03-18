@@ -1,3 +1,150 @@
+// Creating GSAP timelines for leave and enter
+const tlLeave = gsap.timeline({
+  defaults: {
+    duration: 0.85,
+    ease: 'power2.easeOut',
+  },
+})
+const tlEnter = gsap.timeline({
+  defaults: {
+    duration: 0.85,
+    ease: 'power2.easeOut',
+  },
+})
+
+// Creating functions for leave and enter transitions
+// 1. Leave Animation
+const leaveAnimation = (current, done) => {
+  // Selecting elements to animate
+  const productImg = current.querySelector('.image-container')
+  const text = current.querySelector('.showcase-text')
+  const circles = current.querySelectorAll('.circle')
+  const arrow = current.querySelector('.showcase-arrow')
+  return (
+    // Animating arrow
+    tlLeave.fromTo(
+      arrow,
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: 50,
+      }
+    ),
+    // Animating product img
+    tlLeave.fromTo(
+      productImg,
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: 100,
+      },
+      '<'
+    ),
+    // Animating text
+    tlLeave.fromTo(
+      text,
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: 100,
+        onComplete: done,
+      },
+      '<'
+    ),
+    // Animating circles
+    tlLeave.fromTo(
+      circles,
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: -200,
+        stagger: 0.15,
+        ease: 'back.out(1.7)',
+        duration: 1,
+      },
+      '<'
+    )
+  )
+}
+
+// 2. Enter Animation
+const enterAnimation = (current, done) => {
+  // Selecting elements to animate
+  const productImg = current.querySelector('.image-container')
+  const text = current.querySelector('.showcase-text')
+  const circles = current.querySelectorAll('.circle')
+  const arrow = current.querySelector('.showcase-arrow')
+  return (
+    // Animating arrow
+    tlLeave.fromTo(
+      arrow,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      }
+    ),
+    // Animating product img
+    tlLeave.fromTo(
+      productImg,
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      },
+      '<'
+    ),
+    // Animating text
+    tlLeave.fromTo(
+      text,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        onComplete: done,
+      },
+      '<'
+    ),
+    // Animating circles
+    tlLeave.fromTo(
+      circles,
+      {
+        opacity: 0,
+        y: -200,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15,
+        ease: 'back.out(1.7)',
+        duration: 1,
+      },
+      '<'
+    )
+  )
+}
+
 // Initializing Page Transitions Animations using Barbajs
 barba.init({
   preventRunning: true,
@@ -8,32 +155,12 @@ barba.init({
       leave(data) {
         const done = this.async()
         let currentContainer = data.current.container
-        return gsap.fromTo(
-          currentContainer,
-          {
-            opacity: 1,
-          },
-          {
-            opacity: 0,
-            duration: 1,
-            onComplete: done,
-          }
-        )
+        leaveAnimation(currentContainer, done)
       },
       enter(data) {
         const done = this.async()
         let nextContainer = data.next.container
-        return gsap.fromTo(
-          nextContainer,
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            duration: 1,
-            onComplete: done,
-          }
-        )
+        enterAnimation(nextContainer, done)
       },
     },
   ],

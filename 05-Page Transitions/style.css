@@ -13,7 +13,7 @@ body {
 
 /* Navbar */
 nav {
-  min-height: 10vh;
+  height: 10vh;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -39,8 +39,10 @@ nav img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 90vh;
+  height: 100vh;
+  margin-top: -10vh;
   padding: 0rem 15%;
+  overflow: hidden;
 }
 
 .image-container {
