@@ -8,6 +8,7 @@
 
 body {
   background: linear-gradient(260deg, #b75d62, #754d4f);
+  overflow: hidden;
 }
 /* CSS RESET End*/
 
@@ -127,7 +128,7 @@ nav img {
   z-index: 5;
 }
 .product-description {
-  padding: 5% 15%;
+  padding: 1rem 15%;
   color: #4b4b4b;
 }
 .product-description h2 {
@@ -140,7 +141,7 @@ nav img {
 }
 .product-gallery {
   display: grid;
-  padding: 5% 15%;
+  padding: 1rem 15%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap : 2rem;
 }
