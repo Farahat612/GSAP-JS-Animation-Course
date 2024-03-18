@@ -208,5 +208,43 @@ gsap.fromTo(
   }
 )
 
-
+// Animating the form submission
+// Selecting the button from the document
+const button = document.querySelector('button')
+// Creating a GSAP timeline for the form submission
+const tl3 = gsap.timeline({
+  defaults: { duration: 0.75, ease: 'Power2.easeOut' },
+})
+// Adding the form submission animation to the button on click
+button.addEventListener('click', (e) => {
+  // preventing page reload on form submission
+  e.preventDefault()
+  // fading out the form content
+  tl3.to('.contact-right, .contact-left', {
+    y: 30,
+    opacity: 0,
+    pointerEvents: 'none',
+  })
+  // scaling down the form
+  tl3.to('form', { scale: 0.8 }, '<')
+  // fading in the submitted message
+  tl3.fromTo(
+    '.submitted',
+    {
+      opacity: 0,
+      y: 30,
+    },
+    {
+      opacity: 1,
+      y: 0,
+    }
+  )
+  // Hand wave animation
+  gsap.set('#hand', { transformOrigin: 'left' })
+  gsap.fromTo(
+    '#hand',
+    { rotation: 0, y: 0 },
+    { rotation: -10, y: 2, ease: 'elastic(3,0.3)', duration: 2, delay: 1 }
+  )
+})
 
