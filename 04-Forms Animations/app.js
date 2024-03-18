@@ -5,6 +5,17 @@ const form = document.querySelector('form')
 // Creating a GSAP default timeline
 const tl = gsap.timeline({ defaults: { duration: 1 } })
 
+// creating Email and Phone validation functions using regular expressions
+// *Note: Didn't implement them ---> grabbed them from Google*
+function validateEmail(email) {
+  let re = /\S+@\S+\.\S+/
+  return re.test(email)
+}
+function validatePhone(phone) {
+  let re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  return re.test(phone)
+}
+
 // creating start and end positions for the line svg to achieve the elastic effect
 // *Note: the values are hardcoded and got from figma design made by the course author*
 const start =
@@ -59,16 +70,15 @@ containers.forEach((container) => {
   })
 })
 
-
 //Reverting each input animations back if it's not focused
-form.addEventListener("click", () => {
+form.addEventListener('click', () => {
   //Looping through the containers and reverting the animations back if the input is not focused
   containers.forEach((container) => {
     // 1. Selecting the elements needed from the container
-    const input = container.querySelector(".input");
-    const line = container.querySelector(".elastic-line");
-    const placeholder = container.querySelector(".placeholder");
-    
+    const input = container.querySelector('.input')
+    const line = container.querySelector('.elastic-line')
+    const placeholder = container.querySelector('.placeholder')
+
     //Checking to see if the input is not focused and it's empty
     if (document.activeElement !== input) {
       if (!input.value) {
@@ -78,9 +88,10 @@ form.addEventListener("click", () => {
           left: 0,
           scale: 1,
           duration: 0.5,
-          ease: "Power2.easeOut",
-        });
+          ease: 'Power2.easeOut',
+        })
       }
     }
-  });
-});
+    
+  })
+})
