@@ -248,3 +248,15 @@ button.addEventListener('click', (e) => {
   )
 })
 
+// Finally animating the form intrance when the page loads
+tl.fromTo(
+  form,
+  { opacity: 0, y: -150, rotation: '-15deg' },
+  {
+    opacity: 1,
+    y: 0,
+    rotation: '0deg',
+    duration: 2.5,
+    ease: 'elastic.out(0.5, 0.23)',
+  }
+)
