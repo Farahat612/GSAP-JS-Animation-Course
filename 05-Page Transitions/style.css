@@ -70,6 +70,10 @@ nav img {
   padding: 3rem 0;
   font-weight: 400;
 }
+.showcase-text a {
+  position: relative;
+  z-index: 2;
+}
 .showcase-btn {
   padding: 0.5rem 2rem;
   font-family: poppins;
