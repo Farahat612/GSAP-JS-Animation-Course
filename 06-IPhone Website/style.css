@@ -32,7 +32,7 @@ a {
 }
 .nav-links a,
 .nav-links button {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 .logo {
   font-size: 1rem;
@@ -75,7 +75,7 @@ a {
 
 /* Second Page */
 .second-page {
-  min-height: 125vh;
+  min-height: 110vh;
   color: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
@@ -91,9 +91,9 @@ a {
   z-index: 1;
 }
 .second-text {
-  padding: 5% 30%;
+  padding: 5% 10%;
   position: relative;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
   z-index: 2;
 }
