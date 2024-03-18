@@ -179,3 +179,34 @@ checkbox.addEventListener('click', () => {
     tl2.to('.checkbox-label', { color: '#c5c5c5' }, '<')
   }
 })
+
+// Adding the charachter eye and eyebrow animations
+// 1. setting the transform origin for the eye
+gsap.set('#eye', { transformOrigin: 'center' })
+// 2. Animating the eye
+gsap.fromTo(
+  '#eye',
+  { scaleY: 1 },
+  {
+    scaleY: 0.3,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.5,
+    ease: 'Power2.easeOut',
+  }
+)
+// 3. Animating the eyebrow
+gsap.fromTo(
+  '#eyebrow',
+  { y: 0 },
+  {
+    y: -1,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.5,
+    ease: 'Power2.easeOut',
+  }
+)
+
+
+
