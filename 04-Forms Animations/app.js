@@ -13,13 +13,13 @@ const end =
   'M1 0.999512C1 0.999512 61.5 7.5 151 7.5C240.5 7.5 301 0.999512 301 0.999512'
 
 // Looping through the containers and adding the elastic effect to each one being focused
-
 containers.forEach((container) => {
   // 1. Selecting the elements needed from the container
   const input = container.querySelector('.input')
   const line = container.querySelector('.elastic-line')
   const placeholder = container.querySelector('.placeholder')
 
+  // 2. Adding the elastic effect to the input when it's focused
   input.addEventListener('focus', () => {
     //Checking to see if there is any text in the input
     if (!input.value) {
@@ -58,3 +58,29 @@ containers.forEach((container) => {
     }
   })
 })
+
+
+//Reverting each input animations back if it's not focused
+form.addEventListener("click", () => {
+  //Looping through the containers and reverting the animations back if the input is not focused
+  containers.forEach((container) => {
+    // 1. Selecting the elements needed from the container
+    const input = container.querySelector(".input");
+    const line = container.querySelector(".elastic-line");
+    const placeholder = container.querySelector(".placeholder");
+    
+    //Checking to see if the input is not focused and it's empty
+    if (document.activeElement !== input) {
+      if (!input.value) {
+        // Reverting the placeholder back to the start position
+        gsap.to(placeholder, {
+          top: 0,
+          left: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "Power2.easeOut",
+        });
+      }
+    }
+  });
+});
