@@ -100,13 +100,14 @@ a {
 /* Third Page Phone Split*/
 .third-page {
   position: relative;
-  padding: 0% 20%;
+  padding: 0% 10%;
 }
 
 .product-text-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 15rem;
   min-height: 100vh;
   background: white;
 }
@@ -121,20 +122,24 @@ a {
   text-align: left;
 }
 .product-images {
+  width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .large-phone {
   position: relative;
-  transform: translateX(40%) scale(0.8);
+  transform: translateX(40%) scale(0.6);
   z-index: 1;
 }
 .small-phone {
   position: relative;
   z-index: 2;
-  transform: translateX(-40%) scale(0.8);
+  transform: translateX(-40%) scale(0.6);
 }
 .retina-line {
   position: absolute;

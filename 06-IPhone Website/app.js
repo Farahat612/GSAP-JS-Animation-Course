@@ -36,3 +36,40 @@ const tlHRemove = gsap.timeline({
   },
 })
 tlHRemove.to('.highlight', { color: 'rgba(255,255,255, 0.4', stagger: 1 })
+
+// 03. Animating the third section to move the image and the text to the right and left while scrolling like they are being splitted and then come back together
+// 3.1 Creating a scroll triggered timeline to animate the split part
+const tlSplit = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.third-page', // the element that will trigger the animation
+    start: '-35%',
+    end: '10%',
+    // markers: true,
+    scrub: true,
+  },
+})
+// 3.2 Animating the split part for both left and right imgaes and also both left and right texts
+tlSplit.fromTo('.large-phone', { x: '40%' }, { x: '20%' }) // left image
+tlSplit.fromTo('.small-phone', { x: '-40%' }, { x: '-20%' }, '<') // right image
+tlSplit.fromTo(
+  '.product-text-left',
+  { x: 250, opacity: 0 },
+  { opacity: 1, x: -80 },
+  '<'
+) // left text
+tlSplit.fromTo(
+  '.product-text-right',
+  { x: -150, opacity: 0 },
+  { opacity: 1, x: 70 },
+  '<'
+) // right text
+// 3.3 Pinning this page to the viewport after the split part --> !didn't like it
+// const tlSplitPin = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: '.third-page',
+//     pin: true,
+//     pinSpacing: false,
+//     start: '10%',
+//     end: '100%',
+//   },
+// })
