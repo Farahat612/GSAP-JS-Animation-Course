@@ -118,7 +118,6 @@ nav img {
 }
 /* Circle Bubbles End*/
 
-
 /*! --------------------- Product Page Styles --------------------- !*/
 .product-section {
   background: white;
@@ -143,11 +142,11 @@ nav img {
   display: grid;
   padding: 1rem 15%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap : 2rem;
+  grid-gap: 2rem;
 }
 .product-gallery .product-img {
- border-radius: 1rem;
- width: 100%;
+  border-radius: 1rem;
+  width: 100%;
 }
 .price {
   display: flex;
@@ -161,3 +160,51 @@ nav img {
   padding: 1rem;
 }
 /*! --------------------- Product Page Styles End --------------------- !*/
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .showcase {
+    flex-direction: column;
+    padding: 5%;
+    justify-content: space-evenly;
+    min-height: 85vh;
+    margin-top: 0;
+  }
+  .image-container {
+    min-height: 30vh;
+    justify-content: center;
+    order: 1;
+    margin-bottom: 5rem;
+  }
+  .image-container img {
+    width: 70%;
+  }
+  .circle-3 {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+  .circle-1,
+  .circle-2 {
+    display: none;
+  }
+  .showcase-title {
+    font-size: 1.5rem;
+  }
+  .showcase-subtitle {
+    padding: 2rem 0;
+    font-size: 1rem;
+  }
+  .showcase-text {
+    padding-bottom: 0;
+  }
+  .showcase-arrow {
+    right: 2%;
+    bottom: 55%;
+  }
+}
+/* MEDIA QUERIES End */
