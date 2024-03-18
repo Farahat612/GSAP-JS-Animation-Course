@@ -12,7 +12,7 @@ const tlEnter = gsap.timeline({
   },
 })
 
-// Creating functions for leave and enter transitions
+// Creating functions for showcase leave and enter animations
 // 1. Leave Animation
 const leaveAnimation = (current, done) => {
   // Selecting elements to animate
@@ -78,7 +78,6 @@ const leaveAnimation = (current, done) => {
     )
   )
 }
-
 // 2. Enter Animation
 const enterAnimation = (current, done, gradient) => {
   // Selecting elements to animate
@@ -153,6 +152,51 @@ const enterAnimation = (current, done, gradient) => {
   )
 }
 
+// Creating functions for product leave and enter animations
+// 1. Leave Animation
+const leaveProductAnimation = (current, done) => {
+  // Animating product
+  tlLeave.fromTo(
+    current,
+    {
+      y: '0%',
+    },
+    {
+      y: '100%',
+      onComplete: done,
+    }
+  )
+}
+// 2. Enter Animation
+const enterProductAnimation = (current, done) => {
+  // Animating product
+  tlEnter.fromTo(
+    current,
+    {
+      opacity: 0,
+      y: '100%',
+    },
+    {
+      opacity: 1,
+      y: '0%',
+    }
+  ),
+    // Animating product card
+    tlEnter.fromTo(
+      '.card',
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15,
+        onnComplete: done,
+      }
+    )
+}
+
 // Changing Gradient Background on page change
 // Creating a function tha returns the gradient of each page
 const getGradient = (name) => {
@@ -165,7 +209,6 @@ const getGradient = (name) => {
       return 'linear-gradient(260deg, #b27a5c , #7f5450)'
   }
 }
-
 
 // Initializing Page Transitions Animations using Barbajs
 barba.init({
@@ -193,6 +236,22 @@ barba.init({
         enterAnimation(nextContainer, done, pageGradient)
       },
     },
+    // Product Page transitions
+    {
+      name: 'product-transition',
+      sync: true,
+      from: { namespace: ['handbag', 'product'] },
+      to: { namespace: ['product', 'handbag'] },
+      leave(data) {
+        const done = this.async()
+        let currentContainer = data.current.container
+        leaveProductAnimation(currentContainer, done)
+      },
+      enter(data) {
+        const done = this.async()
+        let nextContainer = data.next.container
+        enterProductAnimation(nextContainer, done)
+      },
+    },
   ],
 })
-
