@@ -164,9 +164,12 @@ button {
 @media screen and (max-width: 812px) {
   form {
     width: 90vw;
-    min-height: 80vh;
+    min-height: 70vh;
     flex-direction: column;
-    padding: 8rem 3rem;
+    padding: 5rem 3rem 8rem;
+  }
+  .contact-right {
+    gap: 1.5rem;
   }
   .line-svg {
     width: 100%;
