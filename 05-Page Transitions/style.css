@@ -90,3 +90,23 @@ nav img {
 }
 /* End of Showcase section*/
 
+/* Circle Bubbles*/
+.circle {
+  position: absolute;
+}
+.circle-1 {
+  left: -3%;
+  bottom: -3%;
+  transform: scale(1.25);
+}
+.circle-2 {
+  left: 40%;
+  bottom: 15%;
+  transform: scale(0.8);
+}
+.circle-3 {
+  left: 18%;
+  top: 20%;
+  transform: scale(1.05);
+}
+/* Circle Bubbles End*/
