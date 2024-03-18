@@ -134,3 +134,48 @@ form.addEventListener('click', () => {
     })
   })
 })
+
+// Adding fill animation to the checkbox as it is being checked and unchecked
+// Selecting the checkbox and the tick mark path
+const checkbox = document.querySelector('.checkbox')
+const tickMarkPath = document.querySelector('.tick-mark path')
+// Getting the length of the tick mark path
+const pathLength = tickMarkPath.getTotalLength()
+// Creating a GSAP timeline for the checkbox fill animation
+const tl2 = gsap.timeline({
+  defaults: { duration: 0.5, ease: 'Power2.easeOut' },
+})
+// setting the strokeDasharray to the pathLength to make the path visible --> check the SVG documentation
+gsap.set(tickMarkPath, {
+  strokeDashoffset: pathLength,
+  strokeDasharray: pathLength,
+})
+// Adding the fill animation to the checkbox
+checkbox.addEventListener('click', () => {
+  if (checkbox.checked) {
+    // animate the checkbox fill to the top
+    tl2.to('.checkbox-fill', { top: '0%' })
+    // animate the tick mark path to the end to make it visible
+    tl2.fromTo(
+      tickMarkPath,
+      // using the strokeDashoffset property to animate the path
+      { strokeDashoffset: pathLength },
+      { strokeDashoffset: 0 },
+      '<50%'
+    )
+    // animate the label color to the blue color
+    tl2.to('.checkbox-label', { color: '#6391e8' }, '<')
+  } else {
+    // animate the checkbox fill back to the bottom
+    tl2.to('.checkbox-fill', { top: '100%' })
+    // animate the tick mark path back to the start to make it invisible
+    tl2.fromTo(
+      tickMarkPath,
+      { strokeDashoffset: 0 },
+      { strokeDashoffset: pathLength },
+      '<50%'
+    )
+    // animate the label color back to the default
+    tl2.to('.checkbox-label', { color: '#c5c5c5' }, '<')
+  }
+})
