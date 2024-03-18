@@ -80,7 +80,7 @@ const leaveAnimation = (current, done) => {
 }
 
 // 2. Enter Animation
-const enterAnimation = (current, done) => {
+const enterAnimation = (current, done, gradient) => {
   // Selecting elements to animate
   const productImg = current.querySelector('.image-container')
   const text = current.querySelector('.showcase-text')
@@ -88,7 +88,7 @@ const enterAnimation = (current, done) => {
   const arrow = current.querySelector('.showcase-arrow')
   return (
     // Animating arrow
-    tlLeave.fromTo(
+    tlEnter.fromTo(
       arrow,
       {
         opacity: 0,
@@ -100,7 +100,7 @@ const enterAnimation = (current, done) => {
       }
     ),
     // Animating product img
-    tlLeave.fromTo(
+    tlEnter.fromTo(
       productImg,
       {
         opacity: 0,
@@ -113,7 +113,7 @@ const enterAnimation = (current, done) => {
       '<'
     ),
     // Animating text
-    tlLeave.fromTo(
+    tlEnter.fromTo(
       text,
       {
         opacity: 0,
@@ -127,7 +127,7 @@ const enterAnimation = (current, done) => {
       '<'
     ),
     // Animating circles
-    tlLeave.fromTo(
+    tlEnter.fromTo(
       circles,
       {
         opacity: 0,
@@ -141,9 +141,31 @@ const enterAnimation = (current, done) => {
         duration: 1,
       },
       '<'
+    ),
+    // Changing background gradient
+    tlEnter.to(
+      'body',
+      {
+        background: gradient,
+      },
+      '<'
     )
   )
 }
+
+// Changing Gradient Background on page change
+// Creating a function tha returns the gradient of each page
+const getGradient = (name) => {
+  switch (name) {
+    case 'handbag':
+      return 'linear-gradient(260deg, #b75d62 , #754d4f)'
+    case 'boot':
+      return 'linear-gradient(260deg, #5d8cb7 , #4c4f70)'
+    case 'hat':
+      return 'linear-gradient(260deg, #b27a5c , #7f5450)'
+  }
+}
+
 
 // Initializing Page Transitions Animations using Barbajs
 barba.init({
@@ -152,6 +174,13 @@ barba.init({
     // Showcase Section transitions
     {
       name: 'default-transition',
+      once(data) {
+        const done = this.async()
+        let nextContainer = data.next.container
+        let pageGradient = getGradient(data.next.namespace)
+        gsap.set('body', { background: pageGradient })
+        enterAnimation(nextContainer, done, pageGradient)
+      },
       leave(data) {
         const done = this.async()
         let currentContainer = data.current.container
@@ -160,8 +189,10 @@ barba.init({
       enter(data) {
         const done = this.async()
         let nextContainer = data.next.container
-        enterAnimation(nextContainer, done)
+        let pageGradient = getGradient(data.next.namespace)
+        enterAnimation(nextContainer, done, pageGradient)
       },
     },
   ],
 })
+
