@@ -43,7 +43,18 @@ containers.forEach((container) => {
         },
         '<50%'
       )
-      
+      //Placeholder Shift
+      tl.to(
+        placeholder,
+        {
+          top: -15,
+          left: 0,
+          scale: 0.7,
+          duration: 0.5,
+          ease: 'Power2.easeOut',
+        },
+        '<15%' // the delay before it moves up --> the value was found by trial and error, it made it act as the line was hitting it to move it up
+      )
     }
   })
 })
