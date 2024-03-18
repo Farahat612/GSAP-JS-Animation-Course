@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Transitions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body data-barba="wrapper">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <img src="./images/burger.svg" alt="buger" />
+      <a href="./index.html" class="logo">Barba.</a>
+      <img
+        src="./images/shopping-cart.svg"
+        alt="shopping cart"
+        class="shopping-bag"
+      />
+    </nav>
+    <!-- End of Navbar -->
+
+    <!-- Product Section -->
+    <div
+      class="product-section"
+      data-barba="container"
+      data-barba-namespace="product"
+    >
+      <div class="product-description">
+        <h2>Shop Our Signatures</h2>
+        <p>
+          Our Signatures are made with the finest ingredients and never go out
+          of style.
+        </p>
+      </div>
+      <div class="product-gallery">
+        <div class="card">
+          <img src="./images/blackcard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/yellowcard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/tancard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/bluecard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/blackcard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/tancard.png" alt="" class="product-img">
+          <h3>Leisara</h3>
+          <p>Black Leather</p>
+          <div class="price">
+            <h4>300$</h4>
+            <img src="./images/product-cart.svg" alt="" class="product-cart">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Product Section -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"
+      integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- unpkg -->
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
