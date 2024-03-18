@@ -32,3 +32,61 @@ nav img {
   transform: scale(0.8);
 }
 /* End of Navbar*/
+
+/* Showcase section */
+.showcase {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90vh;
+  padding: 0rem 15%;
+}
+
+.image-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80vh;
+  flex: 1;
+}
+.image-container img {
+  width: 90%;
+  object-fit: cover;
+}
+
+.showcase-text {
+  color: white;
+  flex: 1;
+  padding-bottom: 10rem;
+}
+.showcase-title {
+  font-size: 2rem;
+}
+.showcase-subtitle {
+  font-size: 1rem;
+  padding: 3rem 0;
+  font-weight: 400;
+}
+.showcase-btn {
+  padding: 0.5rem 2rem;
+  font-family: poppins;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+.showcase-arrow {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  color: white;
+  cursor: pointer;
+  transform: scale(0.8);
+}
+/* End of Showcase section*/
+
