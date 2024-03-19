@@ -74,7 +74,7 @@ const tlSplitPin = gsap.timeline({
   },
 })
 
-// 04. Carousel Animation
+// 04. Carousel Animation in the fourth section
 // 4.1 Selecting the elements needed : swatches, gallery, and slides
 const swatches = document.querySelectorAll('.swatches img')
 const gallery = document.querySelector('.phone-gallery')
@@ -105,3 +105,32 @@ swatches.forEach((swatch, index) => {
     currentSwatch = swatchName // to keep the same swatch name if same swatch is clicked again
   })
 })
+
+// 05. Animating the video in the fifth section
+// 5.1 Creating a scroll triggered timeline to animate the video and the text
+const tlVideo = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.fifth-page',
+    start: '0%',
+    end: '100%',
+    scrub: true,
+    pin: true, // pinning the video to the viewport so that we can animate the text
+  },
+})
+// 5.2 Animating the video by changing the current time of it
+tlVideo.fromTo(
+  '.product-video',
+  { currentTime: 0 },
+  { currentTime: 3, duration: 1 }
+)
+// 5.3 Animating the text by fading it in
+tlVideo.fromTo(
+  '.product-info-container h3',
+  { opacity: 0 },
+  {
+    opacity: 1,
+    stagger: 0.15, // to fade them in one after the other
+    duration: 0.25,
+  },
+  '<' // to make the text animation start synchronously with the video animation
+)
