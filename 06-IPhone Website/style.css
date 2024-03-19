@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body {
+  overflow-x: hidden;
+}
 a,
 button,
 h1,
@@ -30,9 +33,10 @@ a {
   color: black;
   font-size: 0.9rem;
 }
-.nav-links a,
-.nav-links button {
-  margin-left: 1rem;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .logo {
   font-size: 1rem;
@@ -244,13 +248,18 @@ a {
 /*  Sixth page */
 .sixth-page {
   min-height: 100vh;
-  padding: 10% 20%;
+  /* width: 100vw; */
+  overflow-x: hidden;
+  padding: 15% 10% 5% 10%;
   justify-content: space-between;
   position: relative;
   display: flex;
 }
 .portrait {
   height: 70vh;
+}
+.photo-description {
+  width: 40%;
 }
 .photo-title {
   font-size: 2rem;
