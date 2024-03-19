@@ -225,7 +225,7 @@ a {
   align-items: center;
   min-height: 100vh;
   justify-content: space-between;
-  padding: 0% 10rem;
+  padding: 0% 3rem;
 }
 .right-info,
 .left-info {
@@ -235,11 +235,14 @@ a {
 .right-info h3 {
   padding: 3rem 0rem;
   color: rgb(193, 193, 193);
+  font-size: 1rem;
+  font-weight: normal;
 }
 .left-info span,
 .right-info span {
   font-size: 1.5rem;
-  color: rgb(210, 210, 210);
+  color: rgb(231, 231, 231);
+  font-weight: bold;
 }
 .blue {
   z-index: 1;
