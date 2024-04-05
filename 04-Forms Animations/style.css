@@ -161,6 +161,11 @@ button {
 /* SUBMITTED TEXT STYLES End */
 
 /* MEDIA QUERIE FOR SCREENS BELOW MEDIUM */
+@media screen and (min-width: 1024px) {
+  form {
+    width: 800px;
+  }
+}
 @media screen and (max-width: 812px) {
   form {
     width: 90vw;
